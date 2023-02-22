@@ -1,0 +1,263 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.background{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(131, 18, 56, 0.9), rgba(0, 16, 59, 0.9));
+    display: flex;
+    position: relative;
+    padding: 5vh 0;
+}
+
+.background .content{
+    width: 95%;
+    height: 100vh;
+    background: whitesmoke;
+    border-radius: 15px;
+    box-shadow: 6px 6px 18px black;
+    padding: 5% 2%;
+    max-height: 520px;
+    min-height: 360px;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+}
+
+.btns{
+    width: 100%;
+    height: 40px;
+    padding: 5%;
+    position: relative;
+    display: flex;
+}
+
+.bar{
+    position: absolute;
+    width: 45%;
+    border-radius: 5px;
+    height: 40px;
+    background: orangered;
+    margin-left: 0;
+    transition: all .5s;
+}
+
+.left, .right{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    z-index: 10;
+}
+
+.btn-left, .btn-right{
+    z-index: 10;
+    width: 90%;
+    height: inherit;
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: 14px;
+    transition: all .5s;
+    color: whitesmoke;
+    font-weight: bolder;
+}
+
+.formularys{
+    position: relative;
+    margin:30px auto 0 auto;
+    width: 98%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.show-formulary{
+    width: 200%;
+    display: flex;
+    transition: all .5s;
+    margin-left: 0;
+    height: 100%;
+}
+
+.login, .create{
+    width: 100%;
+    padding: 3%;
+    height: 100%;
+    overflow: auto;
+}
+
+.input-form{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid orangered;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+.display-btn{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-submit{
+    z-index: 10;
+    width: 150px;
+    height: 40px;
+    border: 2px solid orangered;
+    color: orangered;
+    cursor: pointer;
+    background: none;
+    font-size: 14px;
+    font-weight: bolder;
+    transition: all .5s;
+}
+
+.btn-submit:hover{
+    background: orangered;
+    color: whitesmoke;
+}
+
+.push{
+    height: 30px;
+    border: 2px solid orangered;
+    margin-top: 5px;
+    color: orangered;
+}
+
+.display-link{
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.link-log{
+    color:orangered;
+    font-size: 14px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.link-log:hover{
+    text-decoration: underline;
+}
+
+.alert{
+    width: 100%;
+    min-height: 0;
+    transition: all .5s;
+    font-size: 14px;
+    padding: 0px;
+    color: orangered;
+    font-weight: bolder;
+}
+
+.show-alert{
+    margin: 5px 0;
+    min-height: 100px;
+    border: 1px solid orangered;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.move{
+    margin-left: -100%;
+}
+
+.display-title{
+    display: none;
+}
+
+@media(min-width:480px){
+    
+    .background .content{
+        padding: 30px 20px;
+        max-width: 450px;
+        max-height: 600px;
+    }
+ 
+    .btns{
+        padding: 20px;
+    }
+}
+
+@media(min-width:768px){
+
+}
+
+@media(min-width:1024px){
+    .background .content{
+        max-width: 800px;
+    }
+
+    .btns{
+        display: none;
+    }
+
+    .show-formulary{
+        width: 100%;
+    }
+
+    .move{
+        margin-left: 0;
+    }
+    
+    .login, .create{
+        width: 100%;
+        padding: 3%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .display-title{
+        display: block;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .title{
+        font-size: 20px;
+        color: orangered;
+        font-weight: bolder;
+    }
+}
+
+@media(min-width:1280px){
+    .background .content{
+        max-width: 1000px;
+    }
+}
+
+@media(min-width:1920px){
+
+    .background .content{
+        max-width: 1200px;
+        max-height: 700px;
+    } 
+
+    .title{
+        font-size: 25px;
+    }
+
+    .login, .create{
+        padding: 20px 80px;
+    }
+
+    .link-log{
+        font-size: 16px;
+    }
+}

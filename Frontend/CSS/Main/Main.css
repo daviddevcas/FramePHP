@@ -1,0 +1,258 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.banner{
+    width: 100%;
+    position: relative;
+    background: aliceblue;
+}
+
+.banner .content{
+    width: 100%;
+    padding: 100px 0 20px 0;
+}
+
+.scroll-images{
+    background: darkgrey;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider{
+    width: 300%;
+    height: 100%;
+    display: flex;
+    margin-left: -100%;
+}
+
+.slide{
+    width: 100%;
+}
+
+.btns{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.left, .rigth{
+    width: 80%;
+}
+
+.btn-slider{
+    width: 40px;
+    height: 40px;
+    background: rgba(245, 245, 245, 0.8);
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all .5s;
+    color: rgba(129, 129, 129, 0.8);
+    padding-top: 3px;
+    padding-right: 0px;
+}
+
+.btn-slider:hover{
+    background: whitesmoke;
+}
+
+.btn-slider-right{
+    right: 10px;
+}
+
+.btn-slider-left{
+    left: 10px;
+}
+
+.img-slide{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.products{
+    width: 100%;
+    position: relative;
+    background: aliceblue;
+    padding: 0;
+}
+
+.products .content{
+    width: 100%;
+    margin: auto;
+}
+
+.title-products{
+    width: 95%;
+    text-align: center;
+    margin:0 auto;
+}
+
+.display-products{
+    padding:20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product{
+    width: 100%;
+    padding: 0px;
+    background: whitesmoke;
+    position: relative;
+    margin: 5px 0;
+}
+
+.display-image{
+    width: 100%;
+    height: 40vh;
+}
+
+.img-product{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.display-information-product{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    width: 70%;
+    top: 0;
+    height: 100%;
+    padding: 10px;
+    color: whitesmoke;
+    overflow: auto;
+    transition: all .3s;
+}
+
+.flex-right .display-information-product{
+    right: 0;
+}
+
+.display-information-product:hover{
+    width: 100%;
+}
+
+.name-product{
+    color: orangered;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+
+.img-logo{
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+    display: block;
+}
+
+@media(min-width:480px){
+    .img-logo{
+        width: 300px;
+    }
+    .scroll-images{
+        height: 45vh;
+    }
+
+    .product{
+        margin: 8px 0;
+    }
+}
+
+@media(min-width:768px){
+    .scroll-images{
+        height: 50vh;
+    }
+
+    .product{
+        margin: 10px 0;
+    }
+
+    .products .content{
+        width: 80%;
+        margin:0 auto;
+    }
+}
+
+@media(min-width:1024px){
+    .logo{
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .img-logo{
+       justify-content: center;
+    }
+    .products .content{
+        width: 900px;
+    }
+
+    .product{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        background: rgba(255, 68, 0,1);
+        height: 300px;
+    }
+
+    .display-image{
+        width: 100%;
+        height: 40vh;
+        max-height: 300px;
+    }
+
+    .display-information-product{
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 25% 100%, 25% 100%, 0% 50%);
+    }
+
+    .flex-right{
+        flex-direction: row-reverse;
+        background: rgba(128, 128, 128, 1);
+    }
+}
+
+@media(min-width:1280px){
+    .products .content{
+        width: 1100px;
+    }
+
+    .display-information-product{
+        padding: 40px;
+    }
+}
+
+@media(min-width:1920px){
+    .products .content{
+        width: 1500px;
+    }
+}

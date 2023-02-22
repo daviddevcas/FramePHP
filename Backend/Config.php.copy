@@ -1,0 +1,19 @@
+<?php
+
+define('URL', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/');
+define('PATH', $_SERVER['DOCUMENT_ROOT'] . '/');
+
+define('HOST', 'localhost');
+define('DB', 'eckofarma');
+define('USER', 'root');
+define('PASSWORD', 'LCnrd4b86xKcDQe');
+define('CHARSET', 'utf8mb4');
+define('NAME', 'Eckofarma');
+
+define('IVA', 16);
+
+define('DISKS', [
+    'files' => constant('PATH') . 'Backend/Public/Files/',
+    'cache' => constant('PATH') . 'Backend/Public/Cache/',
+    'photos' => constant('PATH') . 'Frontend/Images/Profile/',
+]);

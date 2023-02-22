@@ -1,0 +1,181 @@
+.display-table {
+  width: 100%;
+  min-height: 200px;
+  max-height: 270px;
+  background: grey;
+  overflow: auto;
+  padding: 0;
+  border: 1px solid grey;
+  position: relative;
+}
+
+.display-table-min {
+  width: 100%;
+  min-height: 200px;
+  max-height: 250px;
+  background: grey;
+  overflow: auto;
+  padding: 0;
+  border: 1px solid grey;
+  position: relative;
+}
+
+.display-table-list {
+  width: 100%;
+  min-height: 70vh;
+  max-height: 85vh;
+  background: grey;
+  overflow: auto;
+  padding: 0;
+  border: 1px solid grey;
+  position: relative;
+}
+
+.table {
+  width: 100%;
+  background: darkgrey;
+  padding: 0;
+}
+
+.table,
+.cell,
+.cell-description,
+.cell-final {
+  border-collapse: collapse;
+  border: 1px solid grey;
+}
+
+.column,
+.cell {
+  padding: 3px 10px;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.column {
+  position: sticky;
+  top: -1px;
+  z-index: 10;
+  background: orangered;
+  color: whitesmoke;
+  border-collapse: separate;
+  border: 1px solid grey;
+}
+
+.cell {
+  background: #efefef;
+  position: relative;
+  overflow: auto;
+}
+
+.cell-description {
+  background: #efefef;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+.cell-final {
+  position: relative;
+  text-align: right;
+  padding: 15px 10px 6px;
+  background: rgb(185, 185, 185);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  font-size: 1.2em;
+}
+
+.copy:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+
+.row {
+  cursor: pointer;
+}
+
+.row:hover > .cell,
+.row:hover > .cell-description {
+  background: rgb(226, 226, 226);
+}
+
+.btn-action-table,
+.btn-delete-table {
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  min-width: 100px;
+  transition: all 0.2s;
+}
+
+.btn-action-table {
+  background: none;
+  color: orangered;
+  border: 2px solid orangered;
+}
+
+.btn-delete-table {
+  background: none;
+  color: darkred;
+  border: 2px solid darkred;
+}
+
+.btn-delete-table-min {
+  padding: 6px 6px;
+  background: none;
+  color: darkred;
+  border: 2px solid darkred;
+  cursor: pointer;
+  min-width: 80px;
+  transition: all 0.2s;
+}
+
+.btn-action-table:hover {
+  background: orangered;
+  color: whitesmoke;
+}
+
+.btn-delete-table:hover,
+.btn-delete-table-min:hover {
+  background: darkred;
+  color: whitesmoke;
+}
+
+.btn-count {
+  width: 30px;
+  height: 30px;
+  font-size: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+  line-height: 10px;
+}
+
+@media (min-width: 480px) {
+  .display-table {
+    max-height: 400px;
+  }
+
+  .cell-final {
+    padding: 30px 15px 10px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .display-table {
+    max-height: 500px;
+    border: 2px solid grey;
+  }
+
+  .column,
+  .cell,
+  .cell-description,
+  .btn-action-table,
+  .btn-delete-table {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+}

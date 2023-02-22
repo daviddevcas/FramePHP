@@ -1,0 +1,8 @@
+/.htaccess
+/Backend/Config.php
+/Frontend/Js/AJAX.js
+/errors_exe
+/Backend/Public/Files/*
+/Backend/Public/Cache/*
+/Frontend/Images/Profile/*
+/test.php

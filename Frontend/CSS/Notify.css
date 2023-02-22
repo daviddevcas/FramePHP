@@ -1,0 +1,49 @@
+.notify{
+    width: 100%;
+    position: fixed;
+    top: -500px;
+    left: 0;
+    z-index: 1000;
+    transition: all .4s;
+    transition-timing-function: ease-in-out;
+}
+
+.notify .content{
+    position: relative;
+    width: 90%;
+    padding: 10px;
+    max-width: 600px;
+    background: whitesmoke;
+    margin: 0 auto;
+    box-shadow: 10px 10px 20px black;
+    top: 10px;
+}
+
+.notify-display-image{
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+.notify-text{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.notify-image{
+    width: 50px;
+    height: 50px;
+}
+
+.notify-show{
+    top: 0;
+}
+
+@media(min-width:480px){
+    .notify-text{
+        font-size: 15px;
+    }
+}

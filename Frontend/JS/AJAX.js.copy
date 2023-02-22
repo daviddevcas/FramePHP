@@ -1,0 +1,79 @@
+const link = "https://devilet.ec/EckoFarma/";
+
+const expr = {
+  Name: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1])*[a-zA-ZÀ-ÿ\u00f1\u00d1]+\s{0,30}$/,
+  Password:
+    /(?=(.*[0-9]))(?=(.*[\!@#$%_<>{}&!]))(?=(.*[a-z\u00f1\á\é\í\ó\ú]))(?=(.*[A-Z\u00d1\Á\É\Í\Ó\Ú]))\S{8,16}/,
+  Nickname:
+    /^[a-zA-ZÀ-ÿ0-9\u00f1\u00d1\_]+(\S*[a-zA-ZÀ-ÿ0-9\u00f1\u00d1\_])*[a-zA-ZÀ-ÿ0-9\u00f1\u00d1\_]+\s{0,30}$/,
+  Text: /^[a-zA-ZÀ-ÿ0-9\u00f1\u00d1\,\.]+(\s*[a-zA-ZÀ-ÿ0-9\u00f1\u00d1\,\.])*[a-zA-ZÀ-ÿ0-9\u00f1\u00d1\,\.]+\s{0,50}$/,
+  Decimal: /^\d+(\.\d{1,2})?$/,
+  NumberFormat: /^[0-9]+[0-9\.\,]*[0-9\.\,]$/,
+  Formats: /(.png|.jpg|.jpeg)$/i,
+};
+
+function acept(element) {
+  if (element.classList.contains("show-alert")) {
+    element.classList.remove("show-alert");
+    element.innerText = null;
+  } else {
+    element.innerText = null;
+  }
+}
+
+function notAcept(element, msj) {
+  element.innerText = null;
+  if (element.classList.contains("show-alert")) {
+    element.classList.remove("show-alert");
+    setTimeout(() => {
+      element.classList.add("show-alert");
+      element.innerText = msj;
+    }, 500);
+  } else {
+    element.classList.add("show-alert");
+    element.innerText = msj;
+  }
+}
+
+function verifyInput(element, alert, array, msj, exp) {
+  if (exp.test(element.value)) {
+    array["" + element.name] = true;
+    acept(alert);
+  } else {
+    array["" + element.name] = false;
+    notAcept(alert, msj);
+  }
+}
+
+function verifyMoney(element) {
+  let str = "";
+  if (!expr.Decimal.test(element.value)) {
+    if (element.value == "") {
+      element.value = "0.00";
+    } else if (expr.NumberFormat.test(element.value)) {
+      let length = element.value.length;
+      for (let i = 0; i < length; i++) {
+        str += element.value[i];
+
+        if (element.value[i] === ".") {
+          let aux =
+            str +
+            (i + 1 >= length
+              ? 0
+              : element.value[i + 1] != "." && element.value[i + 1] != ","
+              ? element.value[i + 1]
+              : 0) +
+            (i + 2 >= length
+              ? 0
+              : element.value[i + 2] != "." && element.value[i + 2] != ","
+              ? element.value[i + 2]
+              : 0);
+          element.value = aux;
+          return;
+        }
+      }
+    } else {
+      element.value = "0.00";
+    }
+  }
+}
