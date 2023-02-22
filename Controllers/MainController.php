@@ -82,8 +82,8 @@ class MainController extends Controller
                 throw new ControllerException('Nickname incorrect.');
             }
             if (password_verify($_POST['password'], $user->password)) {
-                $this->getView()->getSession()->setCurrentUser($user->nickname);
-                $this->getView()->setUser($user->nickname);
+                $this->getView()->getSession()->setCurrentUser($user->email);
+                $this->getView()->setUser($user->email);
                 $json = ['message' => 'Session is init.'];
             } else {
                 throw new ControllerException('Password incorrect.');
