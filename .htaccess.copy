@@ -1,17 +1,16 @@
 php_value memory_limit 128M
 php_value date.timezone 'America/Mexico_City'
 
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME} !-f 
-RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
-
-RewriteCond %{HTTP_REFERER} buttons-for-website\.com [NC,OR]
-RewriteCond %{HTTP_REFERER} darodar\.com [NC,OR]
+</IfModule>
 
 RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ http://localhost/FoDAP [R,L]
+RewriteRule ^(.\*)$ http://localhost/FoDAP[R,L]
 
 Options ALL -Indexes
 
@@ -19,18 +18,15 @@ ErrorDocument 403 /Store/Errors
 ErrorDocument 404 /Store/Errors
 ErrorDocument 500 /Store/Errors
 
-
 <files .htaccess>
 order allow,deny
 deny from all
 </files>
 
-<files errors_exe.txt>
+<files errors_exe>
 order allow,deny
 deny from all
 </files>
-
-
 
 # sirve archivos foo como archivos php
 
@@ -48,10 +44,8 @@ AddType application/octet-stream .wmv
 
 AddType application/octet-stream .mp3
 
-
 <FilesMatch "\.(ico|jpg|jpeg|png|gif)$">
 
 Header set Cache-Control "max-age=1000000, public"
 
 </FilesMatch>
-

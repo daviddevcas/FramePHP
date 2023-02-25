@@ -23,6 +23,7 @@ class App
             $controller = new $action['controller']();
             $method = $action['method'];
 
+
             if (!$action['session']) {
                 if ($action['params']->count()) {
                     $params = $action['params']->toArray();

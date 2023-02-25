@@ -70,8 +70,4 @@ class View
         return View::$session->getCurrentUser() != null && View::$session->getCurrentUser() != '';
     }
 
-    public static function getPhoto(): bool
-    {
-        return View::getUser()->photo_path == 'default';
-    }
 }

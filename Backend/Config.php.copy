@@ -4,11 +4,11 @@ define('URL', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/');
 define('PATH', $_SERVER['DOCUMENT_ROOT'] . '/');
 
 define('HOST', 'localhost');
-define('DB', 'eckofarma');
+define('DB', '');
 define('USER', 'root');
-define('PASSWORD', 'LCnrd4b86xKcDQe');
+define('PASSWORD', '');
 define('CHARSET', 'utf8mb4');
-define('NAME', 'Eckofarma');
+define('NAME', '');
 
 define('IVA', 16);
 

@@ -11,19 +11,19 @@ class Session
     {
         session_set_cookie_params(60*60*24);
         session_start();
-        if (!isset($_SESSION['eckofarma']['user'])) {
-            $_SESSION['eckofarma']['user'] = '';
+        if (!isset($_SESSION['fodap']['user'])) {
+            $_SESSION['fodap']['user'] = '';
         }
     }
 
     public function setCurrentUser(String $user): void
     {
-        $_SESSION['eckofarma']['user'] = $user;
+        $_SESSION['fodap']['user'] = $user;
     }
 
     public function getCurrentUser(): String
     {
-        return $_SESSION['eckofarma']['user'];
+        return $_SESSION['fodap']['user'];
     }
 
     public function closeSession(): void
@@ -36,8 +36,8 @@ class Session
     public static function getAuthUser(): User| null
     {
         if (Session::isSessionActive()) {
-            if ($_SESSION['eckofarma']['user'] != '') {
-                return User::read('nickname', $_SESSION['eckofarma']['user']);
+            if ($_SESSION['fodap']['user'] != '') {
+                return User::read('email', $_SESSION['fodap']['user']);
             }
         }
 

@@ -29,30 +29,15 @@ class MainController extends Controller
     public function render(): void
     {
         if ($this->getView()->thereCurrentUser()) {
-            if ($this->user->hasPermission('admin.home')) {
-                $this->toRoute('Admin');
-            } else if ($this->user->hasPermission('sales.home')) {
-                $this->getView()->render('Sales/sales');
-            } else {
-                $this->getView()->render('Main/main');
-            }
+            $this->toRoute('Admin');
         } else {
-            $this->getView()->render('Main/main');
+            $this->getView()->render('Main/log');
         }
     }
 
     public function caducable(): void
     {
         $this->getView()->render('Main/caducable');
-    }
-
-    public function log(): void
-    {
-        if (!$this->getView()->thereCurrentUser()) {
-            $this->getView()->render('Main/log');
-        } else {
-            $this->render();
-        }
     }
 
     public function renderConfirmPage(String $code): void
@@ -75,11 +60,11 @@ class MainController extends Controller
 
         try {
             $this->thereCurrentUser(false);
-            $this->valuesPostDefinedState(['nickname', 'password']);
+            $this->valuesPostDefinedState(['email', 'password']);
 
-            $user = User::read('nickname', $_POST['nickname']);
+            $user = User::read('email', $_POST['email']);
             if (is_null($user)) {
-                throw new ControllerException('Nickname incorrect.');
+                throw new ControllerException('Email incorrect.');
             }
             if (password_verify($_POST['password'], $user->password)) {
                 $this->getView()->getSession()->setCurrentUser($user->email);
@@ -105,10 +90,10 @@ class MainController extends Controller
 
         try {
             $this->thereCurrentUser(false);
-            $this->valuesPostDefinedState(['name', 'lastname', 'password', 'nickname', 'password-confirm']);
+            $this->valuesPostDefinedState(['name', 'lastname', 'password', 'email', 'password-confirm']);
 
             if ($_POST['password'] == $_POST['password-confirm']) {
-                if (!is_null(User::read('nickname', $_POST['nickname']))) {
+                if (!is_null(User::read('email', $_POST['email']))) {
                     throw new ControllerException('Account already exist.');
                 }
                 $_POST['password'] = Tools::passwordCrypt($_POST['password']);
@@ -132,12 +117,12 @@ class MainController extends Controller
     {
         try {
             $this->thereCurrentUser(false);
-            $this->valuesPostDefinedState(['nickname']);
+            $this->valuesPostDefinedState(['email']);
 
-            $user = User::read('nickname', $_POST['nickname']);
+            $user = User::read('email', $_POST['email']);
 
             if (is_null($user)) {
-                throw new ControllerException('Nickname incorrect.');
+                throw new ControllerException('Email incorrect.');
             }
             $user->rewriteHash();
             $user->save();
@@ -156,16 +141,16 @@ class MainController extends Controller
     {
         try {
             $this->thereCurrentUser(false);
-            $this->valuesPostDefinedState(['nickname', 'hash']);
+            $this->valuesPostDefinedState(['email', 'hash']);
 
-            $user = User::read('nickname', $_POST['nickname']);
+            $user = User::read('email', $_POST['email']);
 
             if (is_null($user)) {
-                throw new ControllerException('Nickname or hash incorrect.');
+                throw new ControllerException('Email or hash incorrect.');
             }
 
             if ($user->hash != strval($_POST['hash'])) {
-                throw new ControllerException('Nickname or hash incorrect.');
+                throw new ControllerException('Email or hash incorrect.');
             }
 
             $json = ['message' => 'User verified.'];
@@ -183,15 +168,15 @@ class MainController extends Controller
     {
         try {
             $this->thereCurrentUser(false);
-            $this->valuesPostDefinedState(['nickname', 'password', 'password-confirm']);
+            $this->valuesPostDefinedState(['email', 'password', 'password-confirm']);
 
             if ($_POST['password'] != $_POST['password-confirm']) {
                 throw new ControllerException('Passwords not equals.');
             }
-            $user = User::read('nickname', $_POST['nickname']);
+            $user = User::read('email', $_POST['email']);
 
             if (is_null($user)) {
-                throw new ControllerException('Nickname not exist.');
+                throw new ControllerException('Email not exist.');
             }
 
             if (!password_verify($_POST['password'], $user->password)) {
